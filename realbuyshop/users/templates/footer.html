@@ -1,0 +1,62 @@
+<!-- footer.html -->
+<footer class="bg-dark text-white mt-5 py-4">
+  <div class="container">
+    <div class="row">
+      <!-- About RealBuy -->
+      <div class="col-md-4 mb-3">
+        <h5>RealBuy</h5>
+        <p>
+          Your trusted online marketplace for quality products at affordable
+          prices. Shop with confidence and enjoy fast delivery.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-4 mb-3">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="{% url 'home' %}" class="text-white text-decoration-none">
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="{% url 'products' %}"
+              class="text-white text-decoration-none"
+            >
+              Products
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'cart' %}" class="text-white text-decoration-none">
+              Cart
+            </a>
+          </li>
+          <li>
+            <a
+              href="{% url 'checkout' %}"
+              class="text-white text-decoration-none"
+            >
+              Checkout
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="col-md-4 mb-3">
+        <h5>Contact Us</h5>
+        <p>Email: support@realbuy.com</p>
+        <p>Phone: +234 800 123 4567</p>
+        <p>Lagos, Nigeria</p>
+      </div>
+    </div>
+
+    <hr class="bg-light" />
+
+    <div class="text-center">
+      <p class="mb-0">&copy; {% now "Y" %} RealBuy. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>

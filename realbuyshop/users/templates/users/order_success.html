@@ -1,0 +1,21 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<div class="text-center mt-5">
+  <h1 class="text-success">Order Placed Successfully!</h1>
+
+  <p>
+    Your Order ID:
+    <strong>#{{ order.id }}</strong>
+  </p>
+
+  <p>
+    Total Amount:
+    <strong>₦{{ order.total_amount }}</strong>
+  </p>
+
+  <a href="{% url 'products' %}" class="btn btn-primary"> Continue Shopping </a>
+</div>
+
+{% endblock %}

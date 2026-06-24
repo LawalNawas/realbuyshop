@@ -1,0 +1,31 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<h2>Checkout</h2>
+
+<form method="POST" action="{% url 'checkout' %}">
+    {% csrf_token %}
+    <button type="submit">Place Order</button>
+
+  <div class="mb-3">
+    <label>Full Name</label>
+    <input type="text" name="full_name" class="form-control" required />
+  </div>
+
+  <div class="mb-3">
+    <label>Email</label>
+    <input type="email" name="email" class="form-control" required />
+  </div>
+
+  <div class="mb-3">
+    <label>Address</label>
+    <textarea name="address" class="form-control" required></textarea>
+  </div>
+
+  <h4>Total: ₦{{ total_price }}</h4>
+
+  <button class="btn btn-success">Place Order</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+<h1>Welcome to RealBuy</h1>
+<p>You are logged in.</p>
+
+{% for product in products %}
+<div>
+  <h3>{{ product.name }}</h3>
+  <p>₦{{ product.price }}</p>
+  <a href="/products/{{ product.slug }}/">View Product</a>
+</div>
+{% endfor %} 
+
+{% endblock %}

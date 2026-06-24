@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Search Results - RealBuy{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+  <h2 class="mb-4">Search Results for "{{ query }}"</h2>
+
+  {% if products %}
+
+  <div class="row">
+    {% for product in products %}
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow-sm">
+        {% if product.image %}
+        <img
+          src="{{ product.image.url }}"
+          class="card-img-top"
+          alt="{{ product.name }}"
+          style="height: 250px; object-fit: cover"
+        />
+        {% endif %}
+
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ product.name }}</h5>
+
+          <p class="card-text">{{ product.description|truncatewords:20 }}</p>
+
+          {% if product.variants.first %}
+          <h5 class="text-success">₦{{ product.variants.first.price }}</h5>
+          {% endif %}
+
+          <div class="mt-auto">
+            <a
+              href="{% url 'product_detail' product.slug %}"
+              class="btn btn-primary w-100"
+            >
+              View Product
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% else %}
+
+  <div class="alert alert-warning">
+    No products found matching
+    <strong>"{{ query }}"</strong>.
+  </div>
+
+  <a href="{% url 'products' %}" class="btn btn-primary">
+    Browse All Products
+  </a>
+
+  {% endif %}
+</div>
+
+{% endblock %}

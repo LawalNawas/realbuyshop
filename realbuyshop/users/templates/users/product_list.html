@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Products - RealBuy{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+  <h2>Our Products</h2>
+
+  {% for product in products %}
+   <div class="product">
+    <h2>{{ product.name }}</h2>
+    <p>₦{{ product.price }}</p>
+
+    <a href="{% url 'add_to_cart' product.id %}">
+        Add to Cart
+    </a>
+  </div>
+{% endfor %}
+
+{% endblock %}

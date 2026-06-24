@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Register - RealBuy{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow">
+        <div class="card-header bg-success text-white text-center">
+          <h3>Create Account</h3>
+        </div>
+
+        <div class="card-body">
+          <form method="POST">
+               {% csrf_token %}
+
+    {{ form.as_p }}
+
+    {% if form.errors %}
+        <div style="color:red;">
+            {{ form.errors }}
+        </div>
+    {% endif %}
+
+    <button type="submit">Register</button>
+</form>
+
+          <hr />
+
+          <p class="text-center">
+            Already have an account?
+            <a href="{% url 'login' %}"> Login </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
